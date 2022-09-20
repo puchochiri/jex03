@@ -75,6 +75,32 @@ replyService.add(
 			   alert("RESULT: " + result);
 		   }
 	);
+	
+console.log("=============");
+console.log("JS TEST");
+
+var bnoValue = '<c:out value="${board.bno}"/>'
+
+// http://localhost:9094/board/get?pageNum=1&amount=10&type=&keyword=&bno=314
+replyService.getList({bno:bnoValue, page:1},function(list){
+	
+	for(var i = 0, len = list.length||0; i < len; i++){
+		console.log(list[i]);
+	}
+	
+});
+
+//24번 댓글 삭제 테스트
+replyService.remove(24, function(count){
+	
+	console.log(count);
+		
+		if(count === "success"){
+			alert("REMOVED");
+		}
+	}, function(err){
+		alert('ERROR...');
+	});
 
 </script>
 <script type="text/javascript">
