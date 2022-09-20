@@ -72,7 +72,7 @@ replyService.add(
 		   {reply:"JS Test", replyer:"tester", bno:bnoValue}
 		   ,
 		   function(result){
-			   alert("RESULT: " + result);
+			   alert("추가 성공 RESULT: " + result);
 		   }
 	);
 	
@@ -91,17 +91,26 @@ replyService.getList({bno:bnoValue, page:1},function(list){
 });
 
 //24번 댓글 삭제 테스트
-replyService.remove(24, function(count){
+replyService.remove(11, function(count){
 	
 	console.log(count);
 		
 		if(count === "success"){
-			alert("REMOVED");
+			alert("REMOVED 성공");
 		}
 	}, function(err){
-		alert('ERROR...');
+		alert('삭제 ERROR...');
 	});
 
+
+//22번 댓글 수정
+replyService.update({
+	rno : 25,
+	bno : bnoValue,
+	reply : "Modified Reply...."
+}, function(result){
+	alert("수정 완료...");
+});
 </script>
 <script type="text/javascript">
        $(document).ready(function(){
