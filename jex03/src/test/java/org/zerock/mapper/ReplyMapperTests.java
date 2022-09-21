@@ -89,7 +89,7 @@ public class ReplyMapperTests {
 		log.info("UPDATE COUNT: " + count);
 		
 	}
-	
+/*	
 	@Test
 	public void testList() {
 		
@@ -101,6 +101,18 @@ public class ReplyMapperTests {
 		replies.forEach(reply -> log.info(reply));
 		
 	}
+*/	
+	@Test
+	public void testList2() {
+		log.info("테스트 리스트2 출력 ");
+		
+		Criteria cri = new Criteria(2,10);
+		
+		List<ReplyVO>  replies = mapper.getListWithPaging(cri, 4L);
+		
+		replies.forEach(reply -> log.info(reply));
+	}
+	
 	
 
 }
