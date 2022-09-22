@@ -29,7 +29,7 @@
 		where rno = #{rno}
 	
 	</update>
-	<!--  
+	<!-- 
 	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
 	
 		select rno, bno, reply, replyer, replyDate, updatedate
@@ -38,8 +38,8 @@
 		order by rno asc
 		
 	</select>
-	-->
-	
+	 -->
+	 
 	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
 		<![CDATA[
 			select rno, bno, reply, replyer, replydate, updatedate
@@ -52,6 +52,11 @@
 			                and rno > 0
 			                and rownum <= #{cri.pageNum} * #{cri.amount}			                    
 			    ) where rn > (#{cri.pageNum} -1) * #{cri.amount}
+		]]>
+	</select>
+	<select id="getCountByBno" resultType="int">
+		<![CDATA[
+		select count(rno) from tbl_reply where bno = #{bno}
 		]]>
 	</select>
 
